@@ -23,6 +23,6 @@ jobs:
              az deployment group create \
              --name StorageAccountDeployment \
              --resource-group LEARN-IAAC \
-             --template-file IAAC-GIT/StorageAccount.json \
+             --template-file StorageAccount.json \
              --parameters storageAccountType=Standard_GRS
 
