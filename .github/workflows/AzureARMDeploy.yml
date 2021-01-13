@@ -9,20 +9,20 @@ jobs:
       steps:
 
       - name: Login to Azure
-       uses: azure/login@v1
-       with:
+        uses: azure/login@v1
+        with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-     - name: Checkout source code
+      - name: Checkout source code
         uses: actions/checkout@v2
 
       - name: Deploy ARM Template
-       uses: azure/CLI@v1
-       with: 
-         inlineScript: |
-           az deployment group create \
-            --name StorageAccountDeployment \
-           --resource-group LEARN-IAAC \
-           --template-file IAAC-GIT/StorageAccount.json \
-            --parameters storageAccountType=Standard_GRS
+        uses: azure/CLI@v1
+         with: 
+           inlineScript: |
+             az deployment group create \
+             --name StorageAccountDeployment \
+             --resource-group LEARN-IAAC \
+             --template-file IAAC-GIT/StorageAccount.json \
+             --parameters storageAccountType=Standard_GRS
 
